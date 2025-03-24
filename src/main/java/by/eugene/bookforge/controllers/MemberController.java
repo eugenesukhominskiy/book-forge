@@ -28,8 +28,9 @@ public class MemberController {
         return ResponseEntity.ok(memberService.read(id));
     }
 
-    @PatchMapping("/edit/{id}")
-    private ResponseEntity<Member> edit(@RequestBody Member member) {
+    //TODO: Method "edit" should be editing by id
+    @PatchMapping("/edit")
+    private ResponseEntity<Member> edit(@RequestBody MemberDTO member) {
         return ResponseEntity.ok(memberService.update(member));
     }
 

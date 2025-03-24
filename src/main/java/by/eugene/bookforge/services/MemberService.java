@@ -31,7 +31,13 @@ public class MemberService {
         return memberRepository.findById(id).orElse(null);
     }
 
-    public Member update(Member member) {
+    public Member update(MemberDTO memberDTO) {
+        Member member = Member.builder()
+                .role(memberDTO.getRole())
+                .email(memberDTO.getEmail())
+                .username(memberDTO.getUsername())
+                .password(memberDTO.getPassword())
+                .build();
         return memberRepository.save(member);
     }
 
